@@ -1,4 +1,5 @@
-baseurl = "/"
+baseurl = "https://dittastory28.netlify.app/"
+googleAnalytics = "G-HHRW66DYFY"
 languageCode = "en-us"
 languageLang = "en"
 title = "Ditta Story "

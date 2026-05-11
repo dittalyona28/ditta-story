@@ -1,9 +1,9 @@
 baseurl = "https://dittastory28.netlify.app/"
-googleAnalytics = "G-HHRW66DYFY"
 languageCode = "en-us"
 languageLang = "en"
 title = "Ditta Story "
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 
 [params]
+google_analytics_id = "G-HHRW66DYFY"
 images = ["img/og-image.jpg"]

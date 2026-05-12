@@ -2,7 +2,7 @@ name: Deploy Hugo site to Pages
 
 on:
   push:
-    branches: ["main"] # Sesuaikan dengan nama branch kamu (main/master)
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -12,22 +12,28 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # Mengikuti saran GitHub biar lancar
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
-          extended: true # Sangat penting kalau template kamu pakai SCSS/SASS
+          extended: true
+
       - name: Build
-        run: hugo --minify
+        # SANGAT PENTING: Arahkan ke folder site/
+        run: hugo --minify --source site/ 
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ./site/public/ # Sesuaikan path-nya karena ada di folder site
 
   deploy:
     environment:

@@ -28,7 +28,7 @@ jobs:
 
       - name: Build
         # SANGAT PENTING: Arahkan ke folder site/
-        run: hugo --minify --source site/ 
+        run: hugo --minify --source site/ --baseURL "https://dittalyona28.github.io/ditta-story/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
